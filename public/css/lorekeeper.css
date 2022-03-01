@@ -141,7 +141,7 @@ main > .row {
 }
 
 .sidebar .sidebar-header {
-    background-color: #343a40;
+    background-color: #49449c;
 }
 .sidebar .sidebar-header a {
     color: white;
@@ -174,7 +174,7 @@ main > .row {
 }
 .sidebar a.active, .sidebar a.active:hover {
     color: white;
-    background-color: #343a40;
+    background-color: #49449c;
 }
 
 .site-mobile-header {
@@ -444,7 +444,7 @@ main > .row {
 }
 
 .sortable .handle {
-    color: #343a40;
+    color: #49449c;
 }
 .sortable .sortable-placeholder {
     background-color: rgba(0,0,0,0.1);
