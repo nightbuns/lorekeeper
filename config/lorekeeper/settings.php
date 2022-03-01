@@ -36,7 +36,7 @@ return [
     | site wherever the name needs to be displayed.
     |
     */
-    'site_name' => 'Lorekeeper',
+    'site_name' => 'Coelune Orbit',
 
     /*
     |--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ return [
     | It is not, however, displayed on the site itself. This should be kept short and snappy!
     |
     */
-    'site_desc' => 'A Lorekeeper ARPG',
+    'site_desc' => 'The official Coelunes website',
 
     /*
     |--------------------------------------------------------------------------
@@ -136,7 +136,7 @@ return [
     | 'masterlist_image_background' => 'png',
     |
     */
-    'watermark_masterlist_images' => 0,
+    'watermark_masterlist_images' => 1,
     'masterlist_image_dimension' => 0,
     'masterlist_image_format' => null,
     'masterlist_image_background' => '#ffffff',
