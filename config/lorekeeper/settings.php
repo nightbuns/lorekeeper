@@ -36,7 +36,9 @@ return [
     | site wherever the name needs to be displayed.
     |
     */
-    'site_name' => 'Coelune Orbit',
+
+    'site_name' => 'Coelunes',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -48,7 +50,9 @@ return [
     | It is not, however, displayed on the site itself. This should be kept short and snappy!
     |
     */
-    'site_desc' => 'The official Coelunes website',
+
+    'site_desc' => 'A one hop stop for Coelunes!',
+
 
     /*
     |--------------------------------------------------------------------------

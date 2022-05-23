@@ -11,7 +11,7 @@
 
 @if($request->has_image)
     <div class="card mb-3">
-        <div class="card-body bg-secondary text-white">
+        <div class="card-body text-white">
             <div class="row mb-3">
                 <div class="col-md-6">
                     <h3 class="text-center">Main Image</h3>

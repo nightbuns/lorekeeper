@@ -10,7 +10,7 @@
     (Auth::check() && Auth::user()->hasPower('edit_pages'))) || 
     !isset($sales->comments_open_at))
         <hr>
-        <br><br>
+        <br>
         @comments(['model' => $sales,
                 'perPage' => 5
             ])

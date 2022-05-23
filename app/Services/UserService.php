@@ -146,7 +146,9 @@ class UserService extends Service
         $user->settings->save();
 
 
-     /* Updates the user's theme.
+
+     /* Updates the user's theme. 
+
      *
      * @param  array                  $data
      * @param  \App\Models\User\User  $user
@@ -163,6 +165,7 @@ class UserService extends Service
     /**
 
      * Updates the user's avatar. 
+
 
 
      *

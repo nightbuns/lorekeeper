@@ -52,7 +52,10 @@
     {!! Form::close() !!}
 </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5305638b808521b106177e4fb6236f5b89dd7aa9
 <div class="card p-3 mb-2">
     <h3>Email Address</h3>
     <p>Changing your email address will require you to re-verify your email address.</p>
@@ -69,7 +72,11 @@
     {!! Form::close() !!}
 </div>
 
+<<<<<<< HEAD
 <h3>Theme</h3>
+=======
+<div class="card p-3 mb-2"><h3>Theme</h3>
+>>>>>>> 5305638b808521b106177e4fb6236f5b89dd7aa9
 
 <p>Change the way the site looks for you! </p>
 
@@ -83,10 +90,7 @@
     <div class="text-right">
         {!! Form::submit('Edit', ['class' => 'btn btn-primary']) !!}
     </div>
-{!! Form::close() !!}
-
-<h3>Change Password</h3>
-
+{!! Form::close() !!}</div>
 
 <div class="card p-3 mb-2">
     <h3>Change Password</h3>
