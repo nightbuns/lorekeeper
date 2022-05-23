@@ -52,6 +52,7 @@
     {!! Form::close() !!}
 </div>
 
+
 <div class="card p-3 mb-2">
     <h3>Email Address</h3>
     <p>Changing your email address will require you to re-verify your email address.</p>
@@ -67,6 +68,25 @@
         </div>
     {!! Form::close() !!}
 </div>
+
+<h3>Theme</h3>
+
+<p>Change the way the site looks for you! </p>
+
+{!! Form::open(['url' => 'account/theme']) !!}
+    <div class="form-group row">
+        <label class="col-md-2 col-form-label">Theme</label>
+        <div class="col-md-10">
+            {!! Form::select('theme', $themeOptions, Auth::user()->theme_id ? Auth::user()->theme_id : ($defaultTheme ? $defaultTheme->id : 0) , ['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="text-right">
+        {!! Form::submit('Edit', ['class' => 'btn btn-primary']) !!}
+    </div>
+{!! Form::close() !!}
+
+<h3>Change Password</h3>
+
 
 <div class="card p-3 mb-2">
     <h3>Change Password</h3>
