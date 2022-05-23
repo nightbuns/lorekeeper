@@ -1,60 +1,50 @@
-<h1>Welcome, {!! Auth::user()->displayName !!}!</h1>
-<div class="card mb-4 timestamp">
-    <div class="card-body">
-        <i class="far fa-clock"></i> {!! format_date(Carbon\Carbon::now()) !!}
-    </div>
-</div>
 <div class="row">
-    <div class="col-md-6">
-        <div class="card mb-4">
+    <div class="col-md-4">
+        <div class="card mb-4 pb-4">
             <div class="card-body text-center">
-                <img src="{{ asset('images/account.png') }}" alt="Account" />
-                <h5 class="card-title">Account</h5>
+                
+                <div class="m-auto bg-primary dashboard-icons">
+                    <img src="{{ asset('images/characters_icon.png') }}" alt="Characters"/>
+                    <h5 class="card-title text-white">Characters</h5>
+                </div>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="{{ Auth::user()->url }}">Profile</a></li>
-                <li class="list-group-item"><a href="{{ url('account/settings') }}">User Settings</a></li>
-                <li class="list-group-item"><a href="{{ url('trades/open') }}">Trades</a></li>
-            </ul>
+            <div class="m-auto dash-btn">
+                <a class="btn btn-primary" href="{{ url('characters') }}">Characters</a>
+                <a class="btn btn-primary" href="{{ url('characters/myos') }}">MYO Slots</a>
+                <a class="btn btn-primary" href="{{ url('characters/transfers/incoming') }}">Transfers</a>
+            </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card mb-4">
+	
+	<div class="col-md-4">
+        <div class="card mb-4 pb-4">
             <div class="card-body text-center">
-                <img src="{{ asset('images/characters.png') }}" alt="Characters" />
-                <h5 class="card-title">Characters</h5>
+
+                <div class="m-auto bg-primary dashboard-icons">
+                    <img src="{{ asset('images/inventory_icon.png') }}" alt="Inventory" />
+                    <h5 class="card-title text-white">Inventory</h5>
+                </div>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="{{ url('characters') }}">My Characters</a></li>
-                <li class="list-group-item"><a href="{{ url('characters/myos') }}">My MYO Slots</a></li>
-                <li class="list-group-item"><a href="{{ url('characters/transfers/incoming') }}">Character Transfers</a></li>
-            </ul>
+            <div class="m-auto dash-btn">
+                <a class="btn btn-primary" href="{{ url('inventory') }}">Inventory</a>
+                <a class="btn btn-primary" href="{{ Auth::user()->url . '/item-logs' }}">Item Logs</a>
+                <a class="btn btn-primary" href="{{ url('shops') }}">Shops</a>
+            </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="card mb-4">
+	
+	<div class="col-md-4">
+        <div class="card mb-4 pb-4">
             <div class="card-body text-center">
-                <img src="{{ asset('images/inventory.png') }}" alt="Inventory" />
-                <h5 class="card-title">Inventory</h5>
+                <div class="m-auto bg-primary dashboard-icons">
+                    <img src="{{ asset('images/bank_icon.png') }}" alt="Bank" />
+                    <h5 class="card-title text-white">Bank</h5>
+                </div>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="{{ url('inventory') }}">My Inventory</a></li>
-                <li class="list-group-item"><a href="{{ Auth::user()->url . '/item-logs' }}">Item Logs</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-body text-center">
-                <img src="{{ asset('images/currency.png') }}" alt="Bank" />
-                <h5 class="card-title">Bank</h5>
+            <div class="m-auto dash-btn">
+                <a class="btn btn-primary" href="{{ url('bank') }}">Bank</a>
+                <a class="btn btn-primary" href="{{ Auth::user()->url . '/currency-logs' }}">Currency Logs</a>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="{{ url('bank') }}">Bank</a></li>
-                <li class="list-group-item"><a href="{{ Auth::user()->url . '/currency-logs' }}">Currency Logs</a></li>
-            </ul>
         </div>
     </div>
 </div>

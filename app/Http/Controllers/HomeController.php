@@ -12,7 +12,10 @@ use App\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
 
 use App\Models\SitePage;
+use App\Models\User\User;
+use App\Models\Character\Character;
 
+use App\Services\CharacterManager;
 use App\Services\LinkService;
 use App\Services\DeviantArtService;
 use App\Services\UserService;
@@ -34,8 +37,16 @@ class HomeController extends Controller
      */
     public function getIndex()
     {
+        if(Auth::check()){
+            $characters = Auth::user()->characters()->with('image')->visible()->whereNull('trade_id')->get();
+            return view('welcome', [
+                'about' => SitePage::where('key', 'about')->first(),
+                'characters' => $characters
+            ]);
+        }
+
         return view('welcome', [
-            'about' => SitePage::where('key', 'about')->first()
+            'about' => SitePage::where('key', 'about')->first(),
         ]);
     }
     

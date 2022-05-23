@@ -87,11 +87,17 @@
     <div id="app">
 
         @if(Auth::check() && Auth::user()->theme)
-            <div class="site-header-image" id="header" style="background-image: url('{{ Auth::user()->theme->imageUrl }}');"></div>
+            <div class="site-header-image text-center" id="header" style="background-image: url('{{ Auth::user()->theme->imageUrl }}');">
+                <img src="{{ asset('images/logo.png') }}" style="margin-top: 2em; height: 150px; filter: drop-shadow(0 0 0.3em black);" />
+            </div>
         @elseif(isset($defaultTheme) && isset($defaultTheme->imageUrl))
-            <div class="site-header-image" id="header" style="background-image: url('{{ $defaultTheme->imageUrl }}');"></div>
+            <div class="site-header-image text-center" id="header" style="background-image: url('{{ $defaultTheme->imageUrl }}');">
+                <img src="{{ asset('images/logo.png') }}" style="margin-top: 2em; height: 150px; filter: drop-shadow(0 0 0.3em black);" />
+            </div>
         @else
-            <div class="site-header-image" id="header" style="background-image: url('{{ asset('images/header.png') }}');"></div>
+            <div class="site-header-image text-center" id="header" style="background-image: url('{{ asset('images/header.png') }}');">
+                <img src="{{ asset('images/logo.png') }}" style="margin-top: 2em; height: 150px; filter: drop-shadow(0 0 0.3em black);" />
+            </div>
         @endif
 
         @include('layouts._nav')
@@ -100,13 +106,15 @@
 		@endif
 
         <main class="container-fluid">
-            <div class="row">
+            <div class="row no-gutters">
 
-                <div class="sidebar col-lg-2" id="sidebar">
+                <div class="sidebar col-lg-2 pt-5 pb-5" id="sidebar">
                     @yield('sidebar')
                 </div>
-                <div class="main-content col-lg-8 p-4">
-                    <div>
+                <div class="main-content col-lg-8 pt-5 pb-5">
+
+                    <!-- this feature has been taken over by the speech bubble! -->
+                    <!--<div>
                         @if(Auth::check() && !Config::get('lorekeeper.extensions.navbar_news_notif'))
                             @if(Auth::user()->is_news_unread)
                                 <div class="alert alert-info"><a href="{{ url('news') }}">There is a new news post!</a></div>
@@ -116,16 +124,30 @@
                             @endif
                         @endif
                         @include('flash::message')
-                        @yield('content')
-                    </div>
-
-                    <div class="site-footer mt-4" id="footer">
-                            @include('layouts._footer')
-                    </div>
+                    </div> -->
+                    @if(View::hasSection('right'))
+                        <div>
+                            @yield('content')
+                        </div>
+                    @elseif(View::hasSection('sidebar'))
+                        <div class="main-card">
+                            @yield('content')
+                        </div>
+                    @else
+                        <div class="main-card-secondary">
+                            @yield('content')
+                        </div>
+                    @endif
                 </div>
+                <div class="col-lg-2 pt-5 pb-5" id="right-splash">
+                    @yield('right')
+                </div> 
             </div>
-
         </main>
+
+        <div class="site-footer" id="footer">
+            @include('layouts._footer')
+        </div>
 
 
         <div class="modal fade" id="modal" tabindex="-1" role="dialog">
@@ -183,6 +205,32 @@
                         $(this).next().toggle();
                     });
                 });
+            function checkMobileBorder(){
+                let html = document.querySelector("html");
+                let width = html.offsetWidth;
+
+                if(width > "991"){
+                    contentBorder();
+                    return;
+                }
+            }
+
+            function contentBorder(){
+                let sidebar = document.querySelector(".sidebar ul");
+                let main = document.querySelector(".main-card");
+
+                let sidebarHeight = sidebar.offsetHeight;
+                let mainHeight = main.offsetHeight;
+
+                console.log(mainHeight, sidebarHeight);
+
+                if(sidebarHeight < mainHeight){
+                    main.style.borderBottomLeftRadius = "2em";
+                    return;
+                }
+            }
+
+            checkMobileBorder();
         </script>
     </div>
 </body>

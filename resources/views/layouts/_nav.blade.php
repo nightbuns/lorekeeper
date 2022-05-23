@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="headerNav">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark header-nav" id="headerNav">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('lorekeeper.settings.site_name', 'Lorekeeper') }}
@@ -25,26 +25,6 @@
                     @endif
                 </li>
                 @if(Auth::check())
-                    <li class="nav-item dropdown">
-                        <a id="inventoryDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            Home
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="inventoryDropdown">
-                            <a class="dropdown-item" href="{{ url('characters') }}">
-                                My Characters
-                            </a>
-                            <a class="dropdown-item" href="{{ url('characters/myos') }}">
-                                My MYO Slots
-                            </a>
-                            <a class="dropdown-item" href="{{ url('inventory') }}">
-                                Inventory
-                            </a>
-                            <a class="dropdown-item" href="{{ url('bank') }}">
-                                Bank
-                            </a>
-                        </div>
-                    </li>
                     <li class="nav-item dropdown">
                         <a id="queueDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Activity
